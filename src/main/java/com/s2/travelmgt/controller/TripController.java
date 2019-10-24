@@ -13,17 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.s2.travelmgt.model.TripDetails;
 import com.s2.travelmgt.repository.TripInfoRepo;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/trips")
 public class TripController {
 	
 	@Autowired
     TripInfoRepo tripInfoRepo;
-	
-	@RequestMapping(value="/hello", method = RequestMethod.GET)
-	public String helloWorld() throws Exception{
-		return "Hello World!!";
-	}
 	
 	@GetMapping(path = "/getTripInfo")
     @ResponseBody
